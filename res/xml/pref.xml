@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+        android:title="KULLANICI BİLGİLERİ"/>
+    
+    <EditTextPreference
+		android:key="editnamesurname"
+		android:title="Ad ve Soyad"
+		android:summary=""/>
+    
+    <PreferenceCategory
+        android:title="FTP AYARLARI"/>
+    
+    <EditTextPreference
+		android:key="editFTPhost"
+		android:title="FTP: Hostname"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editFTPport"
+		android:title="FTP: Port"
+		android:defaultValue="21"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editFTPuser"
+		android:title="FTP: Kullanıcı Adı"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editFTPpass"
+		android:title="FTP: Şifre"
+		android:summary="" />
+    
+    <PreferenceCategory
+        android:title="SQL AYARLARI"/>
+    
+    <EditTextPreference
+		android:key="editSQLhost"
+		android:title="SQL: Hostname"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editSQLport"
+		android:title="SQL: Port"
+		android:defaultValue="1433"
+		android:summary=""/>
+    
+    <EditTextPreference
+		android:key="editSQLuser"
+		android:title="SQL: Kullanıcı Adı"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editSQLpass"
+		android:title="SQL: Şifre"
+		android:summary=""/>
+    
+    <EditTextPreference
+		android:key="editSQLdatabasename"
+		android:title="SQL: Database Name"
+		android:summary="" />
+    
+    <EditTextPreference
+		android:key="editSQLtablename"
+		android:title="SQL: Table Name"
+		android:summary=""/>
+    
+</PreferenceScreen>

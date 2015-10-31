@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+     android:background="@drawable/background"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <Button
+        android:id="@+id/bPreferences"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Kullanıcı Ayarları" />
+
+    <ImageView
+        android:id="@+id/bPiloting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bPreferences"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="40sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_launcher" />
+
+    <Button
+        android:id="@+id/bGiris"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bPiloting"
+        android:layout_alignRight="@+id/bPiloting"
+        android:layout_below="@+id/bPiloting"
+        android:background="@drawable/custom"
+        android:text="Giriş"
+        android:textColor="#006099"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bGiris"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="AR-GE 2014"
+        android:textSize="20sp" />
+
+</RelativeLayout>
+
+  </ScrollView>
