@@ -1,6 +1,5 @@
 package com.syagbasan.bakimonarim;
 
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -15,6 +14,7 @@ import android.view.KeyEvent;
 public class Preferences extends PreferenceActivity implements
 OnSharedPreferenceChangeListener, OnClickListener {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
