@@ -23,12 +23,13 @@ public class HomeScreen extends Activity implements OnClickListener, android.con
 	Button giris,pref;
     long startTime = 0;
     int minutes=0,seconds=0; 
-    public static String SqlHost="" ,SqlPort="",SqlUsername="",SqlPassword="",SqlDatabaseName="",SqlTableName=""
-    		,FtpHost="",FtpPort="",FtpUsername="",FtpPassword="",NameSurname="";
+    public static String 
+    	SqlHost="" ,SqlPort="",SqlUsername="",SqlPassword="",
+    	SqlDatabaseName="",SqlTableName="",FtpHost="",FtpPort="",
+   		FtpUsername="",FtpPassword="",NameSurname="";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 		
@@ -78,7 +79,7 @@ public class HomeScreen extends Activity implements OnClickListener, android.con
 	        timerHandler.postDelayed(this, 500);
 	        if(seconds==2){
 	        	timerHandler.removeCallbacks(timerRunnable);
-	        	giris.setText("Giris"); //buton üzerine yazma
+	        	giris.setText("Giris"); 
 	        	giris.setTextColor(Color.parseColor("#006099"));
 	        }
 	    }
@@ -100,10 +101,9 @@ public class HomeScreen extends Activity implements OnClickListener, android.con
 	
 	@Override
 	protected void onResume() {
-	    // TODO Auto-generated method stub
+	    // TODO onResume
 	    super.onResume();
-	    SharedPreferences myPreference=PreferenceManager.getDefaultSharedPreferences(this);
-	    //checkBoxStatus.setText("CheckBox Status: " + myPreference.getBoolean("checkboxvalue", true));    
+	    SharedPreferences myPreference=PreferenceManager.getDefaultSharedPreferences(this);   
 	    NameSurname = myPreference.getString("editnamesurname", "");
 	    FtpHost = myPreference.getString("editFTPhost", "");
 	    FtpPort = myPreference.getString("editFTPport", "");
@@ -118,7 +118,6 @@ public class HomeScreen extends Activity implements OnClickListener, android.con
 	}
 	
 	public void connection() {
-		// TODO Auto-generated method stub
 		if(connection){
 			Intent intent = new Intent(getBaseContext(), MainActivity.class);
 			startActivity(intent);		
@@ -149,11 +148,10 @@ public class HomeScreen extends Activity implements OnClickListener, android.con
 
 	@Override
 	public void onClick(DialogInterface arg0, int arg1) {
-		// TODO Auto-generated method stub
 		switch(arg1){
 		case DialogInterface.BUTTON_POSITIVE:
 			finish();
-	        moveTaskToBack(true);//komple kapatmak için
+	        moveTaskToBack(true);
 			break;
 		case DialogInterface.BUTTON_NEGATIVE:
 			break;

@@ -98,19 +98,16 @@ public class MainActivity extends Activity implements LocationListener, android.
       FTPusername = HomeScreen.FtpUsername;
       FTPpassword = HomeScreen.FtpPassword;
       
-      //gps...
+      //gps config...
       locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
       locationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,
               0,   // 3 sec(3000)
               0, this); //10
       
-		//locationManager.removeUpdates(this); //gps ' i durdurma
-		
 		sp = new SoundPool(5 , AudioManager.STREAM_MUSIC , 0);
 		positive = sp.load(this, R.raw.positive, 1);
 		negative = sp.load(this, R.raw.negative, 1);
-		shutter = sp.load(this, R.raw.shutter, 1);
-	
+		shutter = sp.load(this, R.raw.shutter, 1);	
    }
    
    @SuppressWarnings("rawtypes")
@@ -160,7 +157,6 @@ public class MainActivity extends Activity implements LocationListener, android.
 	   try {
 			exifInterface = new ExifInterface(this.imageFile.getAbsolutePath());
 	   } catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 	   }
 	   	
@@ -190,7 +186,6 @@ public class MainActivity extends Activity implements LocationListener, android.
 	   try {
 		   exifInterface.saveAttributes();
 	   } catch (IOException e) {
-		   // TODO Auto-generated catch block
 		   e.printStackTrace();
 		   Toast.makeText(MainActivity.this, e.toString(),Toast.LENGTH_LONG).show();
 	   }
@@ -272,13 +267,12 @@ public class MainActivity extends Activity implements LocationListener, android.
 		    	FTPconnection = false;
 		    }
 		    
-		    
 		    if(SQLconnection == false){
 		    	mFTPClient.deleteFile(takenFileName+".jpg");
 		    }
 			
-		    mFTPClient.logout(); // oturumu kapat
-		    mFTPClient.disconnect(); //bağlantıyı kes
+		    mFTPClient.logout(); 
+		    mFTPClient.disconnect();
 			return status;
 			}
 		} catch(Exception e) {
@@ -288,10 +282,9 @@ public class MainActivity extends Activity implements LocationListener, android.
 	}
    
    private void sqlConnectAndUpdate() {
-	   // TODO Auto-generated method stub
+
 	   try {
-			
-			try {
+			try{
 				conn = CONN( SQLdatabasename, SQLhost+":"+SQLport);
 				statement = conn.createStatement();
 									
@@ -302,13 +295,11 @@ public class MainActivity extends Activity implements LocationListener, android.
 									 
 				statement.close();
 				conn.close();	
-			} catch (SQLException e) {
+			}catch (SQLException e) {
 				e.printStackTrace();
 				SQLconnection = false;
 			}
-					
-			
-					
+		
 			try{
 				conn = CONN( SQLdatabasename, SQLhost+":"+SQLport);
 				statement = conn.createStatement();
@@ -318,16 +309,14 @@ public class MainActivity extends Activity implements LocationListener, android.
 					deneme.setText(resultSet.getString("FotoNo"));
 					SQLconnection = true;
 				}
-				
-	
+
 				resultSet.close();
 				statement.close();
 				conn.close();
 			}catch (Exception e){
 				SQLconnection = false;
 				Toast.makeText(getApplicationContext(), "Database gönderilen veriler kontrol edilemedi", Toast.LENGTH_LONG).show();
-			}
-					
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 			SQLconnection = false;
@@ -337,8 +326,7 @@ public class MainActivity extends Activity implements LocationListener, android.
    
 
    private Connection CONN( String _DB, String _server ){
-		//StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		//StrictMode.setThreadPolicy(policy);
+
 		Connection conn = null;
 		String ConnURL = null;
 		try {
@@ -393,17 +381,15 @@ public class MainActivity extends Activity implements LocationListener, android.
 
    @Override
    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	   // TODO Auto-generated method stub
+
 	   super.onActivityResult(requestCode, resultCode, data);
 	   if (requestCode == 0) {
 	    	try {
 	    		bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 	    		pic.setImageBitmap(bitmap);
 	    	} catch (FileNotFoundException e) {
-	    		// TODO Auto-generated catch block
 	    		e.printStackTrace();
 	    	} catch (IOException e) {
-	    		// TODO Auto-generated catch block
 	    		e.printStackTrace();
 	    	}
 	   }
@@ -439,7 +425,7 @@ public class MainActivity extends Activity implements LocationListener, android.
    
 	@Override
 	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
+		
 		latitude = location.getLatitude();
 		longitude = location.getLongitude();
 		
@@ -448,17 +434,14 @@ public class MainActivity extends Activity implements LocationListener, android.
 	}
 	@Override
 	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
 		///Toast.makeText(getBaseContext(), "Gps turned off ", Toast.LENGTH_LONG).show();
 	}
 	@Override
 	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
 		//Toast.makeText(getBaseContext(), "Gps turned on ", Toast.LENGTH_LONG).show();
 	}
 	@Override
 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-		// TODO Auto-generated method stub	
 	}
 	
 	@Override
@@ -474,7 +457,7 @@ public class MainActivity extends Activity implements LocationListener, android.
 
 	@Override
 	public void onClick(DialogInterface arg0, int arg1) {
-		// TODO Auto-generated method stub
+
 		switch(arg1){
 		case DialogInterface.BUTTON_POSITIVE:
 			break;

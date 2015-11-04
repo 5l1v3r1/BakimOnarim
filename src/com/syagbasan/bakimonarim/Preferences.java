@@ -91,13 +91,15 @@ OnSharedPreferenceChangeListener, OnClickListener {
         
 	}
 
-    protected void onResume() {
+    @SuppressWarnings("deprecation")
+	protected void onResume() {
         super.onResume();
         getPreferenceScreen().getSharedPreferences()
                 .registerOnSharedPreferenceChangeListener(this);
     }
 
-    protected void onPause() {
+    @SuppressWarnings("deprecation")
+	protected void onPause() {
         super.onPause();
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
@@ -106,7 +108,7 @@ OnSharedPreferenceChangeListener, OnClickListener {
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-		// TODO Auto-generated method stub
+		@SuppressWarnings("deprecation")
 		Preference pref = findPreference(key);
 	    if (pref instanceof EditTextPreference) {
 	         EditTextPreference etp = (EditTextPreference) pref;
@@ -133,7 +135,7 @@ OnSharedPreferenceChangeListener, OnClickListener {
 
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
-		// TODO Auto-generated method stub
+		
 		switch(which){
 			case DialogInterface.BUTTON_POSITIVE: // yes
 				onBackPressed();
