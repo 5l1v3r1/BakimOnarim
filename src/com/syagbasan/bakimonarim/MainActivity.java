@@ -82,8 +82,7 @@ public class MainActivity extends Activity implements LocationListener, android.
       
       UIControllers();
       
-      SimpleDateFormat dateFormat = new SimpleDateFormat(
-              "yyyy/MM/dd HH:mm:ss");
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
       Calendar cal = Calendar.getInstance();
       date_time = dateFormat.format(cal.getTime());
 
@@ -100,14 +99,12 @@ public class MainActivity extends Activity implements LocationListener, android.
       
       //gps config...
       locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-      locationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,
-              0,   // 3 sec(3000)
-              0, this); //10
+      locationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,0,0,this);
       
-		sp = new SoundPool(5 , AudioManager.STREAM_MUSIC , 0);
-		positive = sp.load(this, R.raw.positive, 1);
-		negative = sp.load(this, R.raw.negative, 1);
-		shutter = sp.load(this, R.raw.shutter, 1);	
+      sp = new SoundPool(5 , AudioManager.STREAM_MUSIC , 0);
+      positive = sp.load(this, R.raw.positive, 1);
+      negative = sp.load(this, R.raw.negative, 1);
+      shutter = sp.load(this, R.raw.shutter, 1);	
    }
    
    @SuppressWarnings("rawtypes")
