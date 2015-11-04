@@ -87,21 +87,23 @@ public class GoogleMaps extends Activity implements OnClickListener {
 			}
 		}); 
 
-		gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-			
+		gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() 
+		{	
 			@Override
-			public boolean onMarkerClick(Marker marker) {
+			public boolean onMarkerClick(Marker marker) 
+			{
 
-				if (marker != null && only_one_marker == false) {
-                    marker.remove();
-                    only_one_marker = true;
-                    latsql = Double.NaN;
-                    lonsql = Double.NaN;
-    			    tvdecimallatitude.setText("");
-    			    tvdecimallongitude.setText("");
-                }
+				if (marker != null && only_one_marker == false) 
+				{
+					marker.remove();
+					only_one_marker = true;
+					latsql = Double.NaN;
+					lonsql = Double.NaN;
+					tvdecimallatitude.setText("");
+					tvdecimallongitude.setText("");
+				}
 				return false;
-			}
+			}	
 		});	
 	}
 	
