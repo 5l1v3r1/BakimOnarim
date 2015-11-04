@@ -97,7 +97,6 @@ public class GoogleMaps extends Activity implements OnClickListener {
                     only_one_marker = true;
                     latsql = Double.NaN;
                     lonsql = Double.NaN;
-
     			    tvdecimallatitude.setText("");
     			    tvdecimallongitude.setText("");
                 }
